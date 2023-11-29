@@ -1,4 +1,4 @@
-const ul = document.getElementById('_artigos');
+const ul = document.getElementById('artigos');
 const button = document.getElementById('botao');
 
 button.addEventListener('click', () => {
@@ -13,8 +13,12 @@ button.addEventListener('click', () => {
   req.open("GET", "dani");                                                                                                                                                                                                          
   req.send();
 
-JSON.stringify(Array);
+//const result = ["id","titulo","texto","data_hora","capa"];
 
-JSON.parse(String)
+const banco = JSON.parse(result);
+console.log(result);
+
+const parajson = JSON.stringify(banco);
+console.log(parajson);
 
 });
