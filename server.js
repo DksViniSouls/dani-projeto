@@ -15,14 +15,14 @@ const server = http.createServer((req, res) => {
 
     else if (req.url == "/dani") {
         db.all('SELECT * FROM artigo').then(artigos => {
-            res.end(artigos)
+            res.end(JSON.stringify(artigos))
             res.setHeader("Content-Type", "text/html");
             res.writeHead(200);
-            console.log(artigos)
+            
         })
         // fs.readFile("index.js").then(contents => res.end(contents))
-    } else
-        fs.readFile(__dirname + "index.html")
+    } else {
+        fs.readFile(__dirname + "/index.html")
             .then(contents => {
                 res.setHeader("Content-Type", "text/html");
                 res.writeHead(200);
@@ -30,9 +30,10 @@ const server = http.createServer((req, res) => {
             })
             .catch(err => {
                 res.writeHead(500);
-                res.end(err);
+                res.end(JSON.stringify(err));
                 return;
             });
+        }
 });
 server.listen(port, host, () => {
     console.log(`Server is running on http://${host}:${port}`);
