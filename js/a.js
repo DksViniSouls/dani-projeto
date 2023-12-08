@@ -9,9 +9,9 @@ button.addEventListener('click', () => {
 
     const artigos = JSON.parse(this.responseText);
 
-    for (const artigo of artigos.artigo) {
+    for (const artigo of artigos) {
       
-      document.ul.innerHTML()
+      document.innerHTML()
 
       console.log(artigos.artigo);
     }
