@@ -9,14 +9,18 @@ button.addEventListener('click', () => {
 
     const artigos = JSON.parse(this.responseText);
 
-    for (const artigo of artigos) {
-      console.log(artigo.titulo);
+    for (const artigo of artigos.artigo) {
+      
+      document.ul.innerHTML()
+
+      console.log(artigos.artigo);
     }
   }
 
   const req = new XMLHttpRequest();
   req.addEventListener("load", reqListener);
-  req.open("GET", "dani");
-  req.send();
+  req.open("GET", "/artigos");
+  req.send('artigo');
+
 
 });

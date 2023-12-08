@@ -18,7 +18,7 @@ const server = http.createServer((req, res) => {
             res.end(JSON.stringify(artigos))
             res.setHeader("Content-Type", "text/html");
             res.writeHead(200);
-            
+
         })
         // fs.readFile("index.js").then(contents => res.end(contents))
     } else {
@@ -33,7 +33,7 @@ const server = http.createServer((req, res) => {
                 res.end(JSON.stringify(err));
                 return;
             });
-        }
+    }
 });
 server.listen(port, host, () => {
     console.log(`Server is running on http://${host}:${port}`);
