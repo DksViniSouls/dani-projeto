@@ -3,18 +3,20 @@ const button = document.getElementById('botao');
 
 button.addEventListener('click', () => {
   function reqListener() {
-    ul.innerHTML = this.responseText;
+    const response = this.responseText;
 
-    console.log(ul)
+    const artigos = JSON.parse(response);
 
-    const artigos = JSON.parse(this.responseText);
+    let art = '';
 
     for (const artigo of artigos) {
-    
-      console.log(artigos.artigo);
+
+      ul.innerHTML += `<li class="tag is-primary is-light">${artigo.titulo}</li>`
+
+      //art = `titulo:${artigo.titulo}\n`
     }
 
-    ul.innerHTML += `<li>${artigos.artigo}</li>`
+    console.log(art);
 
   }
 
@@ -22,6 +24,5 @@ button.addEventListener('click', () => {
   req.addEventListener('load', reqListener);
   req.open('GET', '/artigos');
   req.send('artigo');
-
 
 });
