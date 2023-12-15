@@ -1,5 +1,5 @@
-const ul = document.getElementById('_artigos');
 const button = document.getElementById('botao');
+const tbody = document.getElementById('_artigos');
 
 button.addEventListener('click', () => {
   function reqListener() {
@@ -11,12 +11,13 @@ button.addEventListener('click', () => {
 
     for (const artigo of artigos) {
 
-      ul.innerHTML += `<li class="tag is-primary is-light">${artigo.titulo}</li>`
+      tbody.innerHTML += `<tr><td>${artigo.id}</td>
+                          <td>${artigo.titulo}</td>
+                          <td>${artigo.texto}</td>
+                          <td>${artigo.data_hora}</td>
+                          <td>${artigo.capa}</td></tr>`
 
-      //art = `titulo:${artigo.titulo}\n`
     }
-
-    console.log(art);
 
   }
 

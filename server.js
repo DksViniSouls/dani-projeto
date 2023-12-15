@@ -22,10 +22,10 @@ const server = http.createServer((req, res) => {
             fs.readFile(__dirname + req.url).then(contents => res.end(contents))
 
         else if (req.url == "/artigos") {
-            db.all('SELECT * FROM artigo').then(artigos => {
-                res.end(JSON.stringify(artigos))
-                res.setHeader("Content-Type", "text/html");
+            db.all('SELECT * FROM artigo').then(artigos => {   
+                res.setHeader("Content-Type", "application/json");
                 res.writeHead(200);
+                res.end(JSON.stringify(artigos))
 
             })
             // fs.readFile("index.js").then(contents => res.end(contents))
