@@ -16,7 +16,6 @@
 
 const server = http.createServer((req, res) => {
 
-        console.log(req.url)
 
         if (req.url.startsWith('/css') || req.url.startsWith('/styles') || req.url.startsWith('/imagem') || req.url.startsWith('/js') || req.url.endsWith('/html'))
             fs.readFile(__dirname + req.url).then(contents => res.end(contents))
@@ -28,6 +27,14 @@ const server = http.createServer((req, res) => {
                 res.end(JSON.stringify(artigos))
 
             })
+
+        } else if (req.url == "/novo-artigo") {
+                db.all('INSERT INTO  artigo').then(artigos => {   
+                    res.setHeader("Content-Type", "application/json");
+                    res.writeHead(200);
+                    res.end(JSON.stringify(artigos))
+    
+                })
             // fs.readFile("index.js").then(contents => res.end(contents))
         } else {
             fs.readFile(__dirname + "/index.html")

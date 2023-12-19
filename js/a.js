@@ -1,6 +1,10 @@
 const button = document.getElementById('botao');
 const tbody = document.getElementById('_artigos');
+const input = document.querySelector('#input')
 
+const objArtigo = {titulo:"?", texto: "?",  capa: "?"};
+                  
+                   
 button.addEventListener('click', () => {
   function reqListener() {
     const response = this.responseText;

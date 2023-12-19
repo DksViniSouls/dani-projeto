@@ -8,12 +8,13 @@
     <title>Banco SQL</title>
 
     <link rel="stylesheet" href="css/bulma.css">
+    <link rel="stylesheet" href="./styles/styles.css">
 
 </head>
 
 <body>
-    <td></td>
 
+<!--
     <button id="botao" class="tag is-primary">Artigos</button>
 
     <table class="table">
@@ -33,8 +34,90 @@
         </tbody>
 
     </table>
-    
+-->
 
+    <div class="columns">
+        <div class="column">
+        </div>
+    
+        <div class="column">
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">Titulo</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <p class="control is-expanded has-icons-left">
+                  <input class="input" type="text" placeholder="">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+    
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">Texto</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <textarea class="textarea" placeholder=""></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">Capa</label>
+            </div>       
+            <div class="field-body">
+              <div class="field">
+                <div class="file is-primary">
+                <label class="file-label">
+                  <input id="input" class="file-input" type="file" name="resume">
+                  <span class="file-cta">
+                    <div class="control">
+                      <span class="file-icon">
+                        <i class="fas fa-upload"></i>
+                      </span>
+                      <span class="file-label">
+                        Baixar Arquivo…
+                      </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label">
+          <!-- Left empty for spacing -->
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <button class="button is-primary">
+                Enviar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!--div/coluna-->
+
+      </div>
+    
+      <div class="column">
+      </div>
+      </div>
+    
     <script src="js/a.js"></script>
 
 </body>
