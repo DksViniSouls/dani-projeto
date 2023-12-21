@@ -1,10 +1,25 @@
 const button = document.getElementById('botao');
 const tbody = document.getElementById('_artigos');
-const input = document.querySelector('#input')
 
-const objArtigo = {titulo:"?", texto: "?",  capa: "?"};
-                  
-                   
+           // Valores do artigoObj //
+           
+const titulo = document.querySelector('#titulo')
+const texto = document.querySelector('#texto');
+const capa = document.querySelector('#imagem64');
+
+const artigoObj = {titulo:titulo.value, texto:texto.value,};
+
+const btnNovoArtigo = document.getElementById('novoArtigo');
+
+const novoTexto = document.getElementById('texto');
+
+btnNovoArtigo.addEventListener('click', () => {
+
+console.log(titulo.value);   
+console.log(texto.value);
+
+});
+
 button.addEventListener('click', () => {
   function reqListener() {
     const response = this.responseText;
@@ -20,7 +35,6 @@ button.addEventListener('click', () => {
                           <td>${artigo.texto}</td>
                           <td>${artigo.data_hora}</td>
                           <td>${artigo.capa}</td></tr>`
-
     }
 
   }
@@ -29,5 +43,5 @@ button.addEventListener('click', () => {
   req.addEventListener('load', reqListener);
   req.open('GET', '/artigos');
   req.send('artigo');
-
+ 
 });

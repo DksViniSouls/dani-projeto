@@ -11,17 +11,17 @@
     const db = await sqlite.open({
         filename: '../sqlite/banco2.db',
         driver: sqlite3.Database
-      })
-//aqui abrir conexao com banco
+    })
+    //aqui abrir conexao com banco
 
-const server = http.createServer((req, res) => {
+    const server = http.createServer((req, res) => {
 
 
         if (req.url.startsWith('/css') || req.url.startsWith('/styles') || req.url.startsWith('/imagem') || req.url.startsWith('/js') || req.url.endsWith('/html'))
             fs.readFile(__dirname + req.url).then(contents => res.end(contents))
 
         else if (req.url == "/artigos") {
-            db.all('SELECT * FROM artigo').then(artigos => {   
+            db.all('SELECT * FROM artigo').then(artigos => {
                 res.setHeader("Content-Type", "application/json");
                 res.writeHead(200);
                 res.end(JSON.stringify(artigos))
@@ -29,12 +29,13 @@ const server = http.createServer((req, res) => {
             })
 
         } else if (req.url == "/novo-artigo") {
-                db.all('INSERT INTO  artigo').then(artigos => {   
-                    res.setHeader("Content-Type", "application/json");
-                    res.writeHead(200);
-                    res.end(JSON.stringify(artigos))
-    
-                })
+            req.body
+            db.all('INSERT INTO artigo').then(artigos => {
+                res.setHeader("Content-Type", "application/json");
+                res.writeHead(200);
+                res.end(JSON.stringify(artigos))
+
+            })
             // fs.readFile("index.js").then(contents => res.end(contents))
         } else {
             fs.readFile(__dirname + "/index.html")
