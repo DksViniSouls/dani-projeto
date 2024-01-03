@@ -29,7 +29,9 @@
             })
 
         } else if (req.url == "/novo-artigo") {
+
             req.body
+
             db.all('INSERT INTO artigo').then(artigos => {
                 res.setHeader("Content-Type", "application/json");
                 res.writeHead(200);
