@@ -4,8 +4,6 @@ function converterImagem() {
 
   let receberArquivo = document.getElementById('imagem').files;
 
-  //console.log(receberArquivo);
-
   // Verifica se existe arquivo
   if (receberArquivo.length > 0) {
 
@@ -32,7 +30,7 @@ function converterImagem() {
       document.getElementById("apresentar-imagem").innerHTML = novaImagem.outerHTML;
 
     };
-    
+
     // Metodo usado para ler o conteudo
     lerArquivo.readAsDataURL(carregarImagem);
 
@@ -49,8 +47,9 @@ const titulo = document.querySelector('#titulo')
 const texto = document.querySelector('#texto');
 const capa = document.querySelector('#imagem');
 
-const artigoObj = { titulo: titulo.value, texto: texto.value, };
+// values
 
+const artigoObj = { titulo: titulo.value, texto: texto.value, capa: capa.value};
 
 const btnNovoArtigo = document.getElementById('novoArtigo');
 
@@ -62,13 +61,17 @@ btnNovoArtigo.addEventListener('click', () => {
 
   const value2 = texto.value;
 
+  const value3 = capa.value;
+
   console.log(value);
   console.log(value2);
+  console.log(value3);
 
 });
 
 button.addEventListener('click', () => {
-  function reqListener() {
+  
+  function reqListener () {
 
     const response = this.responseText;
 
@@ -91,5 +94,11 @@ button.addEventListener('click', () => {
   req.addEventListener('load', reqListener);
   req.open('GET', '/artigos');
   req.send('artigo');
+
+  const res = new XMLHttpRequest();
+  res.addEventListener('load', banco2.db);
+  res.open('POST', '/novo-artigo');
+  res.send(body);
+  
 
 });

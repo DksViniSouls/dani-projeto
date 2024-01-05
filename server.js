@@ -30,15 +30,21 @@
 
         } else if (req.url == "/novo-artigo") {
 
-            req.body
-
-            db.all('INSERT INTO artigo').then(artigos => {
+            req.body('INSERT INTO novo-artigo').then(artigos => {
                 res.setHeader("Content-Type", "application/json");
                 res.writeHead(200);
                 res.end(JSON.stringify(artigos))
 
             })
-            // fs.readFile("index.js").then(contents => res.end(contents))
+
+            db.all('INSERT INTO artigo').then(artigos => {
+                res.setHeader("Content-Type", "application/json");
+                res.writeHead(200);
+                res.end(JSON.stringify(artigos))
+                
+
+            })
+
         } else {
             fs.readFile(__dirname + "/index.html")
                 .then(contents => {
