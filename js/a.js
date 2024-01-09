@@ -41,15 +41,11 @@ function converterImagem() {
 const button = document.getElementById('botao');
 const tbody = document.getElementById('_artigos');
 
-// Valores do artigoObj //
+// Ids do artigoObj //
 
-const titulo = document.querySelector('#titulo')
+const titulo = document.querySelector('#titulo');
 const texto = document.querySelector('#texto');
 const capa = document.querySelector('#imagem');
-
-// values
-
-const artigoObj = { titulo: titulo.value, texto: texto.value, capa: capa.value};
 
 const btnNovoArtigo = document.getElementById('novoArtigo');
 
@@ -57,21 +53,28 @@ const novoTexto = document.getElementById('texto');
 
 btnNovoArtigo.addEventListener('click', () => {
 
-  const value = titulo.value;
+  const artigoObj = { titulo: titulo.value, texto: texto.value, capa: capa.value };
 
-  const value2 = texto.value;
+  function valorUsuario() {
 
-  const value3 = capa.value;
+    const response = this.responseText;
 
-  console.log(value);
-  console.log(value2);
-  console.log(value3);
+    const artigos = JSON.parse(response);
+
+  }
+
+  const res = new XMLHttpRequest();
+    res.addEventListener('load', () => {
+    res.open('POST', '/novo-artigo');
+    res.send(JSON.stringify(artigoObj));
+
+  });
 
 });
 
 button.addEventListener('click', () => {
-  
-  function reqListener () {
+
+  function valorBanco() {
 
     const response = this.responseText;
 
@@ -91,14 +94,9 @@ button.addEventListener('click', () => {
   }
 
   const req = new XMLHttpRequest();
-  req.addEventListener('load', reqListener);
+  req.addEventListener('load', valorBanco);
   req.open('GET', '/artigos');
   req.send('artigo');
 
-  const res = new XMLHttpRequest();
-  res.addEventListener('load', banco2.db);
-  res.open('POST', '/novo-artigo');
-  res.send(body);
-  
-
 });
+

@@ -8,6 +8,6 @@ const sqlite3 = require("sqlite3");
       driver: sqlite3.Database
     })
     const artigos = await db.all('SELECT * FROM artigo');
-    console.log(artigos)
+    console.log(artigos);
 
 })()
